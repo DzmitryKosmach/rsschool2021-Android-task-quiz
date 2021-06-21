@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/quizFragment">
+
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.rsschool.quiz.QuizFragment"
+        android:label="QuizFragment" >
+
+        <action
+            android:id="@+id/action_quizFragment_to_quiz2Fragment"
+            app:destination="@id/quiz2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quiz2Fragment"
+        android:name="com.rsschool.quiz.Quiz2Fragment"
+        android:label="Quiz2Fragment" >
+
+        <action
+            android:id="@+id/action_quiz2Fragment_to_quiz3Fragment"
+            app:destination="@id/quiz3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quiz3Fragment"
+        android:name="com.rsschool.quiz.Quiz3Fragment"
+        android:label="Quiz3Fragment" >
+
+        <action
+            android:id="@+id/action_quiz3Fragment_to_quiz4Fragment"
+            app:destination="@id/quiz4Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quiz4Fragment"
+        android:name="com.rsschool.quiz.Quiz4Fragment"
+        android:label="Quiz4Fragment" >
+
+        <action
+            android:id="@+id/action_quiz4Fragment_to_quiz5Fragment"
+            app:destination="@id/quiz5Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quiz5Fragment"
+        android:name="com.rsschool.quiz.Quiz5Fragment"
+        android:label="Quiz5Fragment" >
+
+        <action
+            android:id="@+id/action_quiz5Fragment_to_result_Fragment"
+            app:destination="@id/result_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/result_Fragment"
+        android:name="com.rsschool.quiz.Result_Fragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
+</navigation>

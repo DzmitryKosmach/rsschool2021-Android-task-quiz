@@ -1,3 +1,47 @@
 <resources>
     <string name="app_name">Quiz</string>
+
+    <string name="question1">Question 1</string>
+    <string name="question2">Question 2</string>
+    <string name="question3">Question 3</string>
+    <string name="question4">Question 4</string>
+    <string name="question5">Question 5</string>
+
+    <string name="question1_text">To be, or not to be…</string>
+    <string name="question1_option1">To be</string>
+    <string name="question1_option2">Not to be</string>
+    <string name="question1_option3">I don`t know</string>
+    <string name="question1_option4">It`s mot my problem</string>
+    <string name="question1_option5">…that is the question</string>
+
+    <string name="question2_text">Tallest skyscraper:</string>
+    <string name="question2_option1">Shanghai Tower. Shanghai</string>
+    <string name="question2_option2">Burj Khalifa, Dubai</string>
+    <string name="question2_option3">Trump International Hotel, Chicago</string>
+    <string name="question2_option4">Central Park Tower, New York</string>
+    <string name="question2_option5">Eiffel Tower, Paris</string>
+
+    <string name="question3_text">The biggest animal:</string>
+    <string name="question3_option1">Cat</string>
+    <string name="question3_option2">Elephant</string>
+    <string name="question3_option3">Kitti`s hog nosed bat</string>
+    <string name="question3_option4">Antarctic blue whale</string>
+    <string name="question3_option5">Human</string>
+
+    <string name="question4_text">What`s superfluous?</string>
+    <string name="question4_option1">Discord</string>
+    <string name="question4_option2">Slack</string>
+    <string name="question4_option3">Kotlin</string>
+    <string name="question4_option4">MicrosoftTeams</string>
+    <string name="question4_option5">Telegram</string>
+
+    <string name="question5_text">The Answer to the Ultimate Question of Life, the Universe, and Everything is:</string>
+    <string name="question5_option1">33</string>
+    <string name="question5_option2">11</string>
+    <string name="question5_option3">7</string>
+    <string name="question5_option4">0</string>
+    <string name="question5_option5">42</string>
+
+    <string name="your_result">Your result: </string>
+
 </resources>

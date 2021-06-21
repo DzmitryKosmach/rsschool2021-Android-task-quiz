@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/quiz_fragment"
+    android:id="@+id/quiz5_fragment"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+        android:id="@+id/appBarLayout5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -15,12 +15,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbar5"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:fitsSystemWindows="true"
-            android:text="@string/question1"
-            app:title="@string/question1" />
+            app:navigationContentDescription="Back to the previous question"
+            app:navigationIcon="@drawable/ic_baseline_chevron_left_24"
+            android:text="@string/question5"
+            app:title="@string/question5" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -28,10 +30,10 @@
         android:id="@+id/scroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/previous_button"
+        app:layout_constraintBottom_toTopOf="@id/previous_button5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout5">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -74,11 +76,11 @@
                 app:layout_constraintEnd_toEndOf="@id/margin_end_guideline"
                 app:layout_constraintStart_toStartOf="@id/margin_start_guideline"
                 app:layout_constraintTop_toTopOf="@id/margin_top_guideline"
-                android:text="@string/question1_text"
-                tools:text="@string/question1_text" />
+                android:text="@string/question5_text"
+                tools:text="@string/question5_text" />
 
             <RadioGroup
-                android:id="@+id/radio_group"
+                android:id="@+id/radio_group5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="@id/margin_end_guideline"
@@ -89,59 +91,56 @@
                     android:id="@+id/option_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/question1_option1"
-                    tools:text="@string/question1_option1" />
+                    android:text="@string/question5_option1"
+                    tools:text="@string/question5_option1" />
 
                 <RadioButton
                     android:id="@+id/option_two"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/question1_option2"
-                    tools:text="@string/question1_option2" />
+                    android:text="@string/question5_option2"
+                    tools:text="@string/question5_option2" />
 
                 <RadioButton
                     android:id="@+id/option_three"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/question1_option3"
-                    tools:text="@string/question1_option3" />
+                    android:text="@string/question5_option3"
+                    tools:text="@string/question5_option3" />
 
                 <RadioButton
                     android:id="@+id/option_four"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:checked="true"
-                    android:text="@string/question1_option4"
-                    tools:text="@string/question1_option4" />
+                    android:text="@string/question5_option4"
+                    tools:text="@string/question5_option4" />
 
                 <RadioButton
                     android:id="@+id/option_five"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/question1_option5"
-                    tools:text="@string/question1_option5" />
+                    android:text="@string/question5_option5"
+                    tools:text="@string/question5_option5" />
 
             </RadioGroup>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/previous_button"
+        android:id="@+id/previous_button5"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="Previous"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:visibility="invisible" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/next_button"
+        android:id="@+id/next_button5"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:saveEnabled="false"
-        android:enabled="false"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
