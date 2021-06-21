@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 
@@ -30,6 +31,7 @@ class Result_Fragment : Fragment() {
     private var sendButton: ImageButton? = null
     private var previousButton: ImageButton? = null
     private var exitButton: ImageButton? = null
+    private var textView: TextView? = null
 
     private var quizViewModel: QuizViewModel? = null
     private var answers: Array<String>? = null
@@ -72,6 +74,9 @@ class Result_Fragment : Fragment() {
         sendButton = view.findViewById<ImageButton>(R.id.imageButtonSend)
         previousButton = view.findViewById<ImageButton>(R.id.imageButtonResultPrev)
         exitButton = view.findViewById<ImageButton>(R.id.imageButtonExit)
+        textView = view.findViewById<TextView>(R.id.textViewResult)
+
+        textView?.text = quizViewModel!!.checkResult()
 
 
         sendButton?.setOnClickListener{
