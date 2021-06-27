@@ -5,14 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.RadioButton
-import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.rsschool.quiz.databinding.FragmentQuizBinding
 
 class QuizFragment : Fragment() {
+    private val numberCell = 0
 
     private var _binding: FragmentQuizBinding? = null
     private val binding get() = _binding!!
@@ -46,6 +45,7 @@ class QuizFragment : Fragment() {
         quizViewModel = ViewModelProvider(activity as MainActivity).get(QuizViewModel::class.java)
         answers = quizViewModel!!.answers
 
+
         binding.nextButton?.setOnClickListener {
             callbacks?.onFragmentNextClick()
         }
@@ -65,6 +65,14 @@ class QuizFragment : Fragment() {
         binding.optionFive?.setOnClickListener(radioButtonClickListener)
     }
 
+    override fun onResume() {
+        super.onResume()
+        binding.radioGroup.check(quizViewModel?.selectedOptions?.get(numberCell) ?: -1)
+        if (binding.radioGroup.checkedRadioButtonId != -1) {
+            binding.nextButton?.isEnabled = true
+        }
+    }
+
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
@@ -75,7 +83,7 @@ class QuizFragment : Fragment() {
             if (view is RadioButton) {
                 answers?.set(0, view.text.toString())
                 binding.nextButton?.isEnabled = true
-                binding.nextButton?.isSaveEnabled = true
+                quizViewModel?.selectedOptions?.set(numberCell, binding.radioGroup.checkedRadioButtonId)
             }
         }
 }

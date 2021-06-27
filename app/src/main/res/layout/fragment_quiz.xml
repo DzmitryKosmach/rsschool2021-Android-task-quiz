@@ -110,8 +110,8 @@
                     android:id="@+id/option_four"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:checked="true"
                     android:text="@string/question1_option4"
+                    tools:checked="true"
                     tools:text="@string/question1_option4" />
 
                 <RadioButton
@@ -140,7 +140,6 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:saveEnabled="false"
         android:enabled="false"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"

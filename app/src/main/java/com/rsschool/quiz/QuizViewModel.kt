@@ -4,7 +4,8 @@ import androidx.lifecycle.ViewModel
 
 class QuizViewModel : ViewModel() {
     private val resApp = App().resourcesApp
-    val answers = Array(5, { "answer" })
+    val answers = Array(5) { "answer" }
+    val selectedOptions = Array(5) { -1 }
 
     private val rightAnswers = arrayOf(
         "To be",

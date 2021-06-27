@@ -63,6 +63,14 @@ class Quiz2Fragment : Fragment() {
         binding.optionFive?.setOnClickListener(radioButtonClickListener)
     }
 
+    override fun onResume() {
+        super.onResume()
+        binding.radioGroup2.check(quizViewModel?.selectedOptions?.get(1) ?: -1)
+        if (binding.radioGroup2.checkedRadioButtonId != -1) {
+            binding.nextButton2?.isEnabled = true
+        }
+    }
+
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
@@ -72,6 +80,8 @@ class Quiz2Fragment : Fragment() {
         View.OnClickListener { view ->
             if (view is RadioButton) {
                 answers?.set(1, view.text.toString())
+                binding.nextButton2?.isEnabled = true
+                quizViewModel?.selectedOptions?.set(1, binding.radioGroup2.checkedRadioButtonId)
             }
         }
 

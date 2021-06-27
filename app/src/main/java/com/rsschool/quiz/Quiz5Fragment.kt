@@ -63,10 +63,20 @@ class Quiz5Fragment : Fragment() {
         binding.optionFive?.setOnClickListener(radioButtonClickListener)
     }
 
+    override fun onResume() {
+        super.onResume()
+        binding.radioGroup5.check(quizViewModel?.selectedOptions?.get(4) ?: -1)
+        if (binding.radioGroup5.checkedRadioButtonId != -1) {
+            binding.nextButton5?.isEnabled = true
+        }
+    }
+
     private var radioButtonClickListener =
         View.OnClickListener { view ->
             if (view is RadioButton) {
                 answers?.set(4, view.text.toString())
+                binding.nextButton5?.isEnabled = true
+                quizViewModel?.selectedOptions?.set(4, binding.radioGroup5.checkedRadioButtonId)
             }
         }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/quiz2_fragment"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/quiz2_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -19,9 +19,9 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:fitsSystemWindows="true"
+            android:text="@string/question2"
             app:navigationContentDescription="Back to the previous question"
             app:navigationIcon="@drawable/ic_baseline_chevron_left_24"
-            android:text="@string/question2"
             app:title="@string/question2" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -72,11 +72,11 @@
                 android:id="@+id/question"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="@string/question2_text"
                 android:textSize="22sp"
                 app:layout_constraintEnd_toEndOf="@id/margin_end_guideline"
                 app:layout_constraintStart_toStartOf="@id/margin_start_guideline"
                 app:layout_constraintTop_toTopOf="@id/margin_top_guideline"
-                android:text="@string/question2_text"
                 tools:text="@string/question2_text" />
 
             <RadioGroup
@@ -140,6 +140,7 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:enabled="false"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

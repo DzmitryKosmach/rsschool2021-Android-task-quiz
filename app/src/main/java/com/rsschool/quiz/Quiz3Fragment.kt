@@ -6,10 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.RadioButton
-import android.widget.RadioGroup
-import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import com.rsschool.quiz.databinding.FragmentQuiz3Binding
 
@@ -67,10 +64,20 @@ class Quiz3Fragment : Fragment() {
         binding.optionFive?.setOnClickListener(radioButtonClickListener)
     }
 
-    var radioButtonClickListener =
+    override fun onResume() {
+        super.onResume()
+        binding.radioGroup3.check(quizViewModel?.selectedOptions?.get(2) ?: -1)
+        if (binding.radioGroup3.checkedRadioButtonId != -1) {
+            binding.nextButton3?.isEnabled = true
+        }
+    }
+
+    private var radioButtonClickListener =
         View.OnClickListener { view ->
             if (view is RadioButton) {
                 answers?.set(2, view.text.toString())
+                binding.nextButton3?.isEnabled = true
+                quizViewModel?.selectedOptions?.set(2, binding.radioGroup3.checkedRadioButtonId)
             }
         }
 
