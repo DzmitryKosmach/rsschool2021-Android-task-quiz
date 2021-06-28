@@ -47,7 +47,7 @@ class Result_Fragment : Fragment() {
         binding.textViewResult?.text = quizViewModel!!.checkResult()
 
         binding.imageButtonSend?.setOnClickListener {
-            val sentText = quizViewModel!!.checkResult() + answers?.asList().toString()
+            val sentText = quizViewModel!!.getResultQuiz()
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
                 putExtra(Intent.EXTRA_TEXT, sentText)

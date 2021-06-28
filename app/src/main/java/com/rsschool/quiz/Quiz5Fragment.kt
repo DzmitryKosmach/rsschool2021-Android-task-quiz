@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.rsschool.quiz.databinding.FragmentQuiz5Binding
 
 class Quiz5Fragment : Fragment() {
-    private val indexQuizViewModel = 4
+    private val INDEX_QUIZ_VIEW_MODEL = 4
 
     private var _binding: FragmentQuiz5Binding? = null
     private val binding get() = _binding!!
@@ -69,7 +69,7 @@ class Quiz5Fragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        binding.radioGroup5.check(quizViewModel?.selectedOptions?.get(indexQuizViewModel) ?: -1)
+        binding.radioGroup5.check(quizViewModel?.selectedOptions?.get(INDEX_QUIZ_VIEW_MODEL) ?: -1)
         if (binding.radioGroup5.checkedRadioButtonId != -1) {
             binding.nextButton5?.isEnabled = true
         }
@@ -78,9 +78,9 @@ class Quiz5Fragment : Fragment() {
     private var radioButtonClickListener =
         View.OnClickListener { view ->
             if (view is RadioButton) {
-                answers?.set(4, view.text.toString())
+                answers?.set(INDEX_QUIZ_VIEW_MODEL, view.text.toString())
                 binding.nextButton5?.isEnabled = true
-                quizViewModel?.selectedOptions?.set(indexQuizViewModel, binding.radioGroup5.checkedRadioButtonId)
+                quizViewModel?.selectedOptions?.set(INDEX_QUIZ_VIEW_MODEL, binding.radioGroup5.checkedRadioButtonId)
             }
         }
 

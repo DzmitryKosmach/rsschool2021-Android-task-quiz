@@ -129,7 +129,7 @@
     <Button
         android:id="@+id/previous_button2"
         style="@style/BottomButton"
-        android:text="Previous"
+        android:text="@string/button_previous"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -137,7 +137,7 @@
         android:id="@+id/next_button2"
         style="@style/BottomButton"
         android:enabled="false"
-        android:text="Next"
+        android:text="@string/button_next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

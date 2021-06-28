@@ -13,7 +13,7 @@ import com.rsschool.quiz.databinding.FragmentQuiz2Binding
 
 
 class Quiz2Fragment : Fragment() {
-    private val indexQuizViewModel = 1
+    private val INDEX_QUIZ_VIEW_MODEL = 1
 
     private var _binding: FragmentQuiz2Binding? = null
     private val binding get() = _binding!!
@@ -70,7 +70,7 @@ class Quiz2Fragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        binding.radioGroup2.check(quizViewModel?.selectedOptions?.get(indexQuizViewModel) ?: -1)
+        binding.radioGroup2.check(quizViewModel?.selectedOptions?.get(INDEX_QUIZ_VIEW_MODEL) ?: -1)
         if (binding.radioGroup2.checkedRadioButtonId != -1) {
             binding.nextButton2?.isEnabled = true
         }
@@ -84,9 +84,9 @@ class Quiz2Fragment : Fragment() {
     private var radioButtonClickListener =
         View.OnClickListener { view ->
             if (view is RadioButton) {
-                answers?.set(1, view.text.toString())
+                answers?.set(INDEX_QUIZ_VIEW_MODEL, view.text.toString())
                 binding.nextButton2?.isEnabled = true
-                quizViewModel?.selectedOptions?.set(indexQuizViewModel, binding.radioGroup2.checkedRadioButtonId)
+                quizViewModel?.selectedOptions?.set(INDEX_QUIZ_VIEW_MODEL, binding.radioGroup2.checkedRadioButtonId)
             }
         }
 

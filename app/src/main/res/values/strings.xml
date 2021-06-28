@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Quiz</string>
 
+    <string name="button_previous">PREVIOUS</string>
+    <string name="button_next">NEXT</string>
+    <string name="button_submit">SUBMIT</string>
+
     <string name="question1">Question 1</string>
     <string name="question2">Question 2</string>
     <string name="question3">Question 3</string>
@@ -11,7 +15,7 @@
     <string name="question1_option1">To be</string>
     <string name="question1_option2">Not to be</string>
     <string name="question1_option3">I don`t know</string>
-    <string name="question1_option4">It`s mot my problem</string>
+    <string name="question1_option4">It`s not my problem</string>
     <string name="question1_option5">…that is the question</string>
 
     <string name="question2_text">Tallest skyscraper:</string>
