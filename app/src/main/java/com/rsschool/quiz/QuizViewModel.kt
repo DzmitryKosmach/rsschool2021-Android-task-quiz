@@ -4,8 +4,12 @@ import androidx.lifecycle.ViewModel
 
 class QuizViewModel : ViewModel() {
     private val resApp = App().resourcesApp
-    val answers = Array(5) { "answer" }
-    val selectedOptions = Array(5) { -1 }
+    lateinit var answers: Array<String>
+    lateinit var selectedOptions: Array<Int>
+
+    init {
+        resetQuiz()
+    }
 
     private val rightAnswers = arrayOf(
         "To be",
@@ -21,5 +25,10 @@ class QuizViewModel : ViewModel() {
             if (answers[index] ==  value) ++ countRightAnswers
         }
         return "Your result: ${countRightAnswers*20}%\n"
+    }
+
+    fun resetQuiz() {
+        answers = Array(5) { "answer" }
+        selectedOptions = Array(5) { -1 }
     }
 }

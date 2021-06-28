@@ -61,8 +61,8 @@ class MainActivity : AppCompatActivity(),
         navController.popBackStack()
     }
 
-    override fun onFragmentResultPreviousClick() {
-        navController.popBackStack()
+    override fun onFragmentResultBackClick() {
+        navController.navigate(R.id.action_result_Fragment_to_quizFragment)
     }
 
     override fun onFragmentResultExit() {

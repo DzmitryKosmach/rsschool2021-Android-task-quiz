@@ -127,9 +127,7 @@
 
     <Button
         android:id="@+id/previous_button"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        style="@style/BottomButton"
         android:text="Previous"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,9 +135,7 @@
 
     <Button
         android:id="@+id/next_button"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        style="@style/BottomButton"
         android:enabled="false"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"

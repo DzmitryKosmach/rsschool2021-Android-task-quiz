@@ -2,15 +2,17 @@ package com.rsschool.quiz
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import androidx.appcompat.view.ContextThemeWrapper
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.rsschool.quiz.databinding.FragmentQuiz5Binding
 
 class Quiz5Fragment : Fragment() {
+    private val indexQuizViewModel = 4
 
     private var _binding: FragmentQuiz5Binding? = null
     private val binding get() = _binding!!
@@ -34,7 +36,9 @@ class Quiz5Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentQuiz5Binding.inflate(inflater, container, false)
+        val ctx: Context = ContextThemeWrapper(activity, R.style.Theme_Quiz_Fifth)
+        val layoutInflater = inflater.cloneInContext(ctx)
+        _binding = FragmentQuiz5Binding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -65,7 +69,7 @@ class Quiz5Fragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        binding.radioGroup5.check(quizViewModel?.selectedOptions?.get(4) ?: -1)
+        binding.radioGroup5.check(quizViewModel?.selectedOptions?.get(indexQuizViewModel) ?: -1)
         if (binding.radioGroup5.checkedRadioButtonId != -1) {
             binding.nextButton5?.isEnabled = true
         }
@@ -76,7 +80,7 @@ class Quiz5Fragment : Fragment() {
             if (view is RadioButton) {
                 answers?.set(4, view.text.toString())
                 binding.nextButton5?.isEnabled = true
-                quizViewModel?.selectedOptions?.set(4, binding.radioGroup5.checkedRadioButtonId)
+                quizViewModel?.selectedOptions?.set(indexQuizViewModel, binding.radioGroup5.checkedRadioButtonId)
             }
         }
 

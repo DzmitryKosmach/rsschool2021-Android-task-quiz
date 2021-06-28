@@ -19,7 +19,7 @@ class Result_Fragment : Fragment() {
     private var answers: Array<String>? = null
 
     interface Callbacks {
-        fun onFragmentResultPreviousClick()
+        fun onFragmentResultBackClick()
         fun onFragmentResultExit()
     }
 
@@ -56,11 +56,11 @@ class Result_Fragment : Fragment() {
 
             val shareIntent = Intent.createChooser(sendIntent, null)
             startActivity(shareIntent)
-
         }
 
         binding.imageButtonResultPrev?.setOnClickListener {
-            callbacks?.onFragmentResultPreviousClick()
+            quizViewModel!!.resetQuiz();
+            callbacks?.onFragmentResultBackClick()
         }
 
         binding.imageButtonExit?.setOnClickListener {

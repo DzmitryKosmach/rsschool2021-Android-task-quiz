@@ -54,5 +54,9 @@
         android:id="@+id/result_Fragment"
         android:name="com.rsschool.quiz.Result_Fragment"
         android:label="fragment_result"
-        tools:layout="@layout/fragment_result" />
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_result_Fragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+    </fragment>
 </navigation>
