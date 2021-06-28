@@ -13,7 +13,7 @@ import com.rsschool.quiz.databinding.FragmentResultBinding
 class Result_Fragment : Fragment() {
 
     private var _binding: FragmentResultBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = requireNotNull(_binding)
 
     private var quizViewModel: QuizViewModel? = null
     private var answers: Array<String>? = null
@@ -33,7 +33,7 @@ class Result_Fragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentResultBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -44,9 +44,9 @@ class Result_Fragment : Fragment() {
         quizViewModel = ViewModelProvider(activity as MainActivity).get(QuizViewModel::class.java)
         answers = quizViewModel!!.answers
 
-        binding.textViewResult?.text = quizViewModel!!.checkResult()
+        binding.textViewResult.text = quizViewModel!!.checkResult()
 
-        binding.imageButtonSend?.setOnClickListener {
+        binding.imageButtonSend.setOnClickListener {
             val sentText = quizViewModel!!.getResultQuiz()
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
@@ -58,12 +58,12 @@ class Result_Fragment : Fragment() {
             startActivity(shareIntent)
         }
 
-        binding.imageButtonResultPrev?.setOnClickListener {
+        binding.imageButtonResultPrev.setOnClickListener {
             quizViewModel!!.resetQuiz();
             callbacks?.onFragmentResultBackClick()
         }
 
-        binding.imageButtonExit?.setOnClickListener {
+        binding.imageButtonExit.setOnClickListener {
             callbacks?.onFragmentResultExit()
         }
     }

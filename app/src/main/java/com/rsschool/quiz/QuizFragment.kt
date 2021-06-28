@@ -34,7 +34,7 @@ class QuizFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentQuizBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -45,17 +45,12 @@ class QuizFragment : Fragment() {
         quizViewModel = ViewModelProvider(activity as MainActivity).get(QuizViewModel::class.java)
         answers = quizViewModel!!.answers
 
-
         binding.nextButton.setOnClickListener {
             callbacks?.onFragmentNextClick()
         }
 
         binding.previousButton.setOnClickListener {
             callbacks?.onFragmentPreviousClick()
-        }
-
-        binding.radioGroup.setOnClickListener {
-            //nextButton?.isEnabled
         }
 
         binding.optionOne.setOnClickListener(radioButtonClickListener)

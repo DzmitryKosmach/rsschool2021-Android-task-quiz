@@ -15,7 +15,7 @@ class Quiz3Fragment : Fragment() {
     private val INDEX_QUIZ_VIEW_MODEL = 2
 
     private var _binding: FragmentQuiz3Binding? = null
-    private val binding get() = _binding!!
+    private val binding get() = requireNotNull(_binding)
 
     private var quizViewModel: QuizViewModel? = null
     private var answers: Array<String>? = null
@@ -35,7 +35,7 @@ class Quiz3Fragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val ctx: Context = ContextThemeWrapper(activity, R.style.Theme_Quiz_Third)
         val layoutInflater = inflater.cloneInContext(ctx)
         _binding = FragmentQuiz3Binding.inflate(layoutInflater, container, false)
@@ -49,30 +49,30 @@ class Quiz3Fragment : Fragment() {
         answers = quizViewModel!!.answers
 
 
-        binding.nextButton3?.setOnClickListener {
+        binding.nextButton3.setOnClickListener {
             callbacks?.onFragment3NextClick()
         }
 
-        binding.previousButton3?.setOnClickListener {
+        binding.previousButton3.setOnClickListener {
             callbacks?.onFragment3PreviousClick()
         }
 
-        binding.toolbar3?.setNavigationOnClickListener {
+        binding.toolbar3.setNavigationOnClickListener {
             callbacks?.onFragment3PreviousClick()
         }
 
-        binding.optionOne?.setOnClickListener(radioButtonClickListener)
-        binding.optionTwo?.setOnClickListener(radioButtonClickListener)
-        binding.optionThree?.setOnClickListener(radioButtonClickListener)
-        binding.optionFour?.setOnClickListener(radioButtonClickListener)
-        binding.optionFive?.setOnClickListener(radioButtonClickListener)
+        binding.optionOne.setOnClickListener(radioButtonClickListener)
+        binding.optionTwo.setOnClickListener(radioButtonClickListener)
+        binding.optionThree.setOnClickListener(radioButtonClickListener)
+        binding.optionFour.setOnClickListener(radioButtonClickListener)
+        binding.optionFive.setOnClickListener(radioButtonClickListener)
     }
 
     override fun onResume() {
         super.onResume()
         binding.radioGroup3.check(quizViewModel?.selectedOptions?.get(INDEX_QUIZ_VIEW_MODEL) ?: -1)
         if (binding.radioGroup3.checkedRadioButtonId != -1) {
-            binding.nextButton3?.isEnabled = true
+            binding.nextButton3.isEnabled = true
         }
     }
 
@@ -80,7 +80,7 @@ class Quiz3Fragment : Fragment() {
         View.OnClickListener { view ->
             if (view is RadioButton) {
                 answers?.set(INDEX_QUIZ_VIEW_MODEL, view.text.toString())
-                binding.nextButton3?.isEnabled = true
+                binding.nextButton3.isEnabled = true
                 quizViewModel?.selectedOptions?.set(INDEX_QUIZ_VIEW_MODEL, binding.radioGroup3.checkedRadioButtonId)
             }
         }
