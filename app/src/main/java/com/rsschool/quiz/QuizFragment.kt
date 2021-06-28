@@ -14,7 +14,7 @@ class QuizFragment : Fragment() {
     private val INDEX_QUIZ_VIEW_MODEL = 0
 
     private var _binding: FragmentQuizBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = requireNotNull(_binding)
 
     private var quizViewModel: QuizViewModel? = null
     private var answers: Array<String>? = null
@@ -46,30 +46,30 @@ class QuizFragment : Fragment() {
         answers = quizViewModel!!.answers
 
 
-        binding.nextButton?.setOnClickListener {
+        binding.nextButton.setOnClickListener {
             callbacks?.onFragmentNextClick()
         }
 
-        binding.previousButton?.setOnClickListener {
+        binding.previousButton.setOnClickListener {
             callbacks?.onFragmentPreviousClick()
         }
 
-        binding.radioGroup?.setOnClickListener {
+        binding.radioGroup.setOnClickListener {
             //nextButton?.isEnabled
         }
 
-        binding.optionOne?.setOnClickListener(radioButtonClickListener)
-        binding.optionTwo?.setOnClickListener(radioButtonClickListener)
-        binding.optionThree?.setOnClickListener(radioButtonClickListener)
-        binding.optionFour?.setOnClickListener(radioButtonClickListener)
-        binding.optionFive?.setOnClickListener(radioButtonClickListener)
+        binding.optionOne.setOnClickListener(radioButtonClickListener)
+        binding.optionTwo.setOnClickListener(radioButtonClickListener)
+        binding.optionThree.setOnClickListener(radioButtonClickListener)
+        binding.optionFour.setOnClickListener(radioButtonClickListener)
+        binding.optionFive.setOnClickListener(radioButtonClickListener)
     }
 
     override fun onResume() {
         super.onResume()
         binding.radioGroup.check(quizViewModel?.selectedOptions?.get(INDEX_QUIZ_VIEW_MODEL) ?: -1)
         if (binding.radioGroup.checkedRadioButtonId != -1) {
-            binding.nextButton?.isEnabled = true
+            binding.nextButton.isEnabled = true
         }
     }
 
@@ -82,7 +82,7 @@ class QuizFragment : Fragment() {
         View.OnClickListener { view ->
             if (view is RadioButton) {
                 answers?.set(INDEX_QUIZ_VIEW_MODEL, view.text.toString())
-                binding.nextButton?.isEnabled = true
+                binding.nextButton.isEnabled = true
                 quizViewModel?.selectedOptions?.set(
                     INDEX_QUIZ_VIEW_MODEL,
                     binding.radioGroup.checkedRadioButtonId
